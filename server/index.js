@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const helmet = require('helmet');
 const path = require('path');
 const logger = require('./middleware/logger');
 const { authenticateToken } = require('./middleware/auth');
@@ -11,7 +13,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(helmet()); // Security headers
+app.use(cors({
+    origin: process.env.CLIENT_URL || '*', // Restrict in production
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(bodyParser.json());
 app.use(logger);
 app.use(express.static(path.join(__dirname, '../public')));

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const SECRET_KEY = 'super_secret_key_for_demo_only'; // In production, use process.env.SECRET_KEY
+const SECRET_KEY = process.env.JWT_SECRET || 'fallback_secret_do_not_use_in_prod';
 
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];

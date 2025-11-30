@@ -1,14 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const usersFile = path.join(__dirname, '../data/users.json');
-const todosFile = path.join(__dirname, '../data/todos.json');
+const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, '../data');
+const usersFile = path.join(DATA_DIR, 'users.json');
+const todosFile = path.join(DATA_DIR, 'todos.json');
 
 // Ensure data directory and files exist
 const ensureDataFiles = () => {
-    const dataDir = path.join(__dirname, '../data');
-    if (!fs.existsSync(dataDir)) {
-        fs.mkdirSync(dataDir, { recursive: true });
+    if (!fs.existsSync(DATA_DIR)) {
+        fs.mkdirSync(DATA_DIR, { recursive: true });
     }
     if (!fs.existsSync(usersFile)) {
         fs.writeFileSync(usersFile, '[]');
