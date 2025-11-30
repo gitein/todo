@@ -1,0 +1,29 @@
+:root {
+    /* Light Theme (Adobe Spectrum-ish) */
+    --bg-color: #f5f5f5;
+    --container-bg: #ffffff;
+    --text-color: #2c2c2c;
+    --text-secondary: #6e6e6e;
+    --primary-color: #1473e6; /* Adobe Blue */
+    --primary-hover: #0d66d0;
+    --border-color: #e1e1e1;
+    --input-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --danger-color: #d7373f;
+    --success-color: #268e6c;
+}
+
+[data-theme="dark"] {
+    /* Dark Theme */
+    --bg-color: #1e1e1e;
+    --container-bg: #323232;
+    --text-color: #eaeaea;
+    --text-secondary: #a0a0a0;
+    --primary-color: #2680eb;
+    --primary-hover: #1473e6;
+    --border-color: #4a4a4a;
+    --input-bg: #252525;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --danger-color: #e34850;
+    --success-color: #2d9d78;
+}
